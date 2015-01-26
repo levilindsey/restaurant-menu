@@ -1,0 +1,8 @@
+{
+  "name": "restaurant-menu",
+  "version": "0.0.0",
+  "description": "Simple restaurant menu app in React",
+  "private": false,
+  "dependencies": {
+  }
+}
