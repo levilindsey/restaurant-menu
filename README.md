@@ -9,6 +9,9 @@ _See this running at [appShortenedUrl][demo-url]!_
 
 ## Acknowledgements / Technology Stack
 
+Much of the code and infrastructure of this project was originally taken from the examples in the 
+[Facebook Flux repo][flux-repo-url].
+
 This project uses technology from a number of third-parties. These technologies include:
 
 - [Node.js][node-url]
@@ -35,3 +38,4 @@ MIT
 [git-url]: http://git-scm.com/
 [npm-url]: http://npmjs.org/
 [bower-url]: http://bower.io/
+[flux-repo-url]: https://github.com/facebook/flux
