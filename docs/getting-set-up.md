@@ -2,11 +2,13 @@
 
 ## Install Global Software
 
-### [Install Git](http://git-scm.com/)
+### [Install Git][git-url]
 
-### [Install Node.js](http://nodejs.org/)
+### [Install Node.js][node-url]
 
-### [Install Ruby](https://www.ruby-lang.org/en/)
+### [Install Ruby][ruby-url]
+
+### [Install Flow][flow-url]
 
 ### Install SASS
 
@@ -20,13 +22,13 @@ gem install sass
 gem install compass
 ```
 
-### Install gulp globally
+### Install Gulp globally
 
 ```bash
 npm install -g gulp
 ```
 
-### Install bower globally
+### Install Bower globally
 
 ```bash
 npm install -g bower
@@ -58,4 +60,12 @@ gulp
 
 ## Live Reload
 
-[Live reload](http://livereload.com/) is a pretty cool feature that refreshes your page within the browser everytime you make a change to your code. The gulp tasks in this project do include support for live reload, but you will need to install a [plugin/extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) in your browser for this to work.
+[Live reload][live-reload-url] is a pretty cool feature that refreshes your page within the browser everytime you make a change to your code. The gulp tasks in this project do include support for live reload, but you will need to install a [plugin/extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) in your browser for this to work.
+
+
+
+[git-url]: http://git-scm.com/
+[node-url]: http://nodejs.org/
+[ruby-url]: https://www.ruby-lang.org/en/
+[flow-url]: http://flowtype.org/docs/getting-started.html
+[live-reload-url]: http://livereload.com/
