@@ -44,8 +44,10 @@ function buildScript(file, watch) {
   var bundler = watch ? watchify(browserify(props)) : browserify(props);
 
   bundler.transform(reactify);
+
   function rebundle() {
     var stream = bundler.bundle();
+
     // TODO: remove gulp-notify
     return stream.on('error', plugins.notify.onError({
       title: "Compile Error",
@@ -54,9 +56,11 @@ function buildScript(file, watch) {
       .pipe(source(file))
       .pipe(gulp.dest(buildDir + '/'));
   }
+
   bundler.on('update', function() {
     rebundle();
     plugins.util.log('Rebundle...');
   });
+
   return rebundle();
 }

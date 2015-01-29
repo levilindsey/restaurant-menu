@@ -16,7 +16,7 @@ config.serverMainPath = config.serverPath + '/main';
 
 config.karmaConfigPath = config.srcPath + '/karma.conf.js';
 
-config.scriptDistFileName = 'restaurant-menu.js';
+config.scriptDistFileName = 'main.js';
 config.vendorScriptDistFileName = 'lib.js';
 config.vendorStyleDistFileName = 'lib.css';
 
