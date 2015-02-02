@@ -6,6 +6,7 @@
 
 var React = require('react');
 var MenuItemActionCreators = require('../../actions/MenuItemActionCreators');
+var PriceUtils = require('../../utils/PriceUtils');
 
 var ReactPropTypes = React.PropTypes;
 
@@ -26,7 +27,7 @@ var MenuListItem = React.createClass({
               {menuItem.title}
             </div>
             <div className="price">
-              {menuItem.price}
+              {PriceUtils.formatPrice(menuItem.price)}
             </div>
           </div>
           <div className="body">

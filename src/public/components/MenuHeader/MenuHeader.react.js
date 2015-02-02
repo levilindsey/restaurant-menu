@@ -6,6 +6,7 @@
 
 var React = require('react');
 var CartStore = require('../../stores/CartStore');
+var PriceUtils = require('../../utils/PriceUtils');
 
 function _getStateFromStores() {
   return {
@@ -30,6 +31,9 @@ var MenuHeader = React.createClass({
   render: function() {
     var count = this.state.cartItems.length;
     var suffix = count !== 1 ? 's' : '';
+    var price = this.state.cartItems.reduce(function(price, cartItem) {
+      return price + cartItem.menuItem.price;
+    }, 0);
 
     return (
       <header className="menu-header">
@@ -39,7 +43,12 @@ var MenuHeader = React.createClass({
         <button
           className="cart-count"
           onClick={this._handleCartCountClick}>
-          Cart: {count} item{suffix}
+          <div>
+            Cart: {count} item{suffix}
+          </div>
+          <div>
+            ({PriceUtils.formatPrice(price)})
+          </div>
         </button>
       </header>
     );
