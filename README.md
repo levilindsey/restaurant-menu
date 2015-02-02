@@ -2,15 +2,16 @@
 
 #### Simple restaurant menu app in React with Flux
 
-_See this running at [appShortenedUrl][demo-url]!_
+<!-- TODO: _See this running at [restaurant-menu.jit.su][demo-url]!_ -->
 
 - [Getting Set Up](./docs/getting-set-up.md)
 - [Understanding the Code](./docs/understanding-the-code.md)
 
 ## Acknowledgements / Technology Stack
 
-Much of the code and infrastructure of this project was originally taken from the examples in the 
-[Facebook Flux repo][flux-repo-url].
+Much of the code and front-end infrastructure of this project was originally taken from the examples in the 
+[Facebook Flux repo][flux-repo-url], while much of the build system was taken from a [MEAN-stack generator]
+[generator-meanie-url] I built and use to bootstrap many of my projects.
 
 This project uses technology from a number of third-parties. These technologies include:
 
@@ -39,3 +40,4 @@ MIT
 [npm-url]: http://npmjs.org/
 [bower-url]: http://bower.io/
 [flux-repo-url]: https://github.com/facebook/flux
+[generator-meanie-url]: https://github.com/levisl176/generator-meanie
