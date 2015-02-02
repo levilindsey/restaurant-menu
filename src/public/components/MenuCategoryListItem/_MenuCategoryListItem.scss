@@ -1,0 +1,21 @@
+.menu-category-list-item {
+  padding: 6px;
+  margin: 10px 0;
+  text-align: right;
+  font-weight: bold;
+  background-color: color(gray-4);
+  cursor: pointer;
+}
+
+.menu-category-list-item:hover {
+  background-color: color(gray-3);
+}
+
+.menu-category-list-item:active {
+  background-color: color(gray-5);
+}
+
+.menu-category-list-item.active {
+  background-color: color(gray-3);
+  cursor: default;
+}

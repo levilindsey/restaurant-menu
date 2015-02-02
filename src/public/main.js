@@ -1,31 +1,33 @@
 /**
- * This file is provided by Facebook for testing and evaluation purposes
- * only. Facebook reserves all rights not expressly granted.
+ * This module bootstraps the entire application.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * FACEBOOK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
- * AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * @module main
  */
 
-// TODO: this should not be hard-coded; fix it for real
-process.env.NODE_ENV='dev';
+// TODO: this should instead be set dynamically via the gulp/browserify build process
+process.env.NODE_ENV = 'dev';
 
-// This file bootstraps the entire application.
-
-var ChatApp = require('./components/ChatApp.react');
-var ChatExampleData = require('./ChatExampleData');
-var ChatWebAPIUtils = require('./utils/ChatWebAPIUtils');
 var React = require('react');
 window.React = React; // export for http://fb.me/react-devtools
 
-ChatExampleData.init(); // load example data into localstorage
+var MenuApp = require('./components/MenuApp/MenuApp.react.js');
+var MenuStorageAPIUtils = require('./utils/MenuStorageAPIUtils');
+var CartStorageAPIUtils = require('./utils/CartStorageAPIUtils');
 
-ChatWebAPIUtils.getAllMessages();
+// Load the menu data
+MenuStorageAPIUtils.loadAllMenuCategories();
+MenuStorageAPIUtils.loadAllMenuItems();
 
-React.render(
-<ChatApp />,
-  document.getElementById('react')
-);
+// Load any pre-existing cart data
+CartStorageAPIUtils.loadAllCartItems();
+
+window.addEventListener('load', renderApp, false);
+
+function renderApp() {
+  window.removeEventListener('load', renderApp);
+
+  React.render(
+    <MenuApp />,
+    document.getElementById('react')
+  );
+}

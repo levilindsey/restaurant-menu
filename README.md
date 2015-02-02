@@ -1,6 +1,6 @@
 # restaurant-menu
 
-#### Simple restaurant menu app in React
+#### Simple restaurant menu app in React with Flux
 
 _See this running at [appShortenedUrl][demo-url]!_
 

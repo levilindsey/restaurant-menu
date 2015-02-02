@@ -1,43 +1,29 @@
 /**
- * This module TODO.
+ * This module defines a flux store that handles menu categories.
  *
  * @module MenuCategoryStore
  */
 
-var ChatAppDispatcher = require('../dispatcher/ChatAppDispatcher');
-var ChatConstants = require('../constants/ChatConstants');
-var ChatMessageUtils = require('../utils/ChatMessageUtils');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
-var ActionTypes = ChatConstants.ActionTypes;
+var MenuAppDispatcher = require('../dispatcher/MenuAppDispatcher');
+var MenuConstants = require('../constants/MenuConstants');
+
+var ActionTypes = MenuConstants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
-var _currentID = null;
-var _threads = {};
+var _categories = [];
+var _currentCategory = null;
 
-var ThreadStore = assign({}, EventEmitter.prototype, {
+var MenuCategoryStore = assign({}, EventEmitter.prototype, {
 
-  init: function(rawMessages) {
-    rawMessages.forEach(function(message) {
-      var threadID = message.threadID;
-      var thread = _threads[threadID];
-      if (thread && thread.lastTimestamp > message.timestamp) {
-        return;
-      }
-      _threads[threadID] = {
-        id: threadID,
-        name: message.threadName,
-        lastMessage: ChatMessageUtils.convertRawMessage(message, _currentID)
-      };
-    }, this);
-
-    if (!_currentID) {
-      var allChrono = this.getAllChrono();
-      _currentID = allChrono[allChrono.length - 1].id;
-    }
-
-    _threads[_currentID].lastMessage.isRead = true;
+  /**
+   * @param {Array.<string>} categories
+   */
+  init: function(categories) {
+    _categories = categories.slice(0);
+    _currentCategory = _categories[0];
   },
 
   emitChange: function() {
@@ -59,63 +45,41 @@ var ThreadStore = assign({}, EventEmitter.prototype, {
   },
 
   /**
-   * @param {string} id
+   * @param {string} categoryName
    */
-  get: function(id) {
-    return _threads[id];
+  get: function(categoryName) {
+    return _categories[categoryName];
   },
 
   getAll: function() {
-    return _threads;
-  },
-
-  getAllChrono: function() {
-    var orderedThreads = [];
-    for (var id in _threads) {
-      var thread = _threads[id];
-      orderedThreads.push(thread);
-    }
-    orderedThreads.sort(function(a, b) {
-      if (a.lastMessage.date < b.lastMessage.date) {
-        return -1;
-      } else if (a.lastMessage.date > b.lastMessage.date) {
-        return 1;
-      }
-      return 0;
-    });
-    return orderedThreads;
-  },
-
-  getCurrentID: function() {
-    return _currentID;
+    return _categories;
   },
 
   getCurrent: function() {
-    return this.get(this.getCurrentID());
+    return _currentCategory;
   }
 
 });
 
-ThreadStore.dispatchToken = ChatAppDispatcher.register(function(payload) {
+MenuCategoryStore.dispatchToken = MenuAppDispatcher.register(function(payload) {
   var action = payload.action;
 
   switch(action.type) {
 
-    case ActionTypes.CLICK_THREAD:
-      _currentID = action.threadID;
-      _threads[_currentID].lastMessage.isRead = true;
-      ThreadStore.emitChange();
+    case ActionTypes.CLICK_CATEGORY_ITEM:
+      _currentCategory = action.categoryName;
+      MenuCategoryStore.emitChange();
       break;
 
-    case ActionTypes.RECEIVE_RAW_MESSAGES:
-      ThreadStore.init(action.rawMessages);
-      ThreadStore.emitChange();
+    case ActionTypes.RECEIVE_MENU_CATEGORIES:
+      MenuCategoryStore.init(action.menuCategories);
+      MenuCategoryStore.emitChange();
       break;
 
     default:
-      // do nothing
+      // Do nothing
   }
 
 });
 
-module.exports = ThreadStore;
+module.exports = MenuCategoryStore;

@@ -1,25 +1,21 @@
 /**
- * This module TODO.
+ * This module defines semantic helper methods for the creation of actions relating to cart item components.
  *
  * @module CartItemActionCreators
  */
 
 var MenuAppDispatcher = require('../dispatcher/MenuAppDispatcher');
 var MenuConstants = require('../constants/MenuConstants');
-var ChatWebAPIUtils = require('../utils/ChatWebAPIUtils');
-var MessageStore = require('../stores/MessageStore');
 
 var ActionTypes = MenuConstants.ActionTypes;
 
 module.exports = {
 
-  createMessage: function(text) {
+  clickRemoveItemFromCart: function(cartItem) {
     MenuAppDispatcher.handleViewAction({
-      type: ActionTypes.CREATE_MESSAGE,
-      text: text
+      type: ActionTypes.CLICK_REMOVE_ITEM_FROM_CART,
+      cartItem: cartItem
     });
-    var message = MessageStore.getCreatedMessageData(text);
-    ChatWebAPIUtils.createMessage(message);
   }
 
 };

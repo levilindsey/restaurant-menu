@@ -1,0 +1,28 @@
+.menu-app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $content-column-width;
+  margin: 0 auto 40px;
+
+  > .menu-header {
+  }
+
+  > section {
+    display: flex;
+
+    > .menu-category-list {
+      flex: 1 1 0;
+      margin-right: 10px;
+    }
+
+    > .menu-items-section {
+      flex: 3 1 0;
+    }
+  }
+
+  > footer {
+    margin: 20px;
+    text-align: center;
+  }
+}

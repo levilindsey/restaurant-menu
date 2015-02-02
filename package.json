@@ -1,7 +1,7 @@
 {
   "name": "restaurant-menu",
   "version": "0.0.0",
-  "description": "Simple restaurant menu app in React",
+  "description": "Simple restaurant menu app in React with Flux",
   "license": "MIT",
   "private": false,
   "domains": [],

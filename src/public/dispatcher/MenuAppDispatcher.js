@@ -13,20 +13,20 @@ var PayloadSources = MenuConstants.PayloadSources;
 var MenuAppDispatcher = assign(new Dispatcher(), {
 
   /**
-   * @param {object} action The details of the action, including the action's
-   * type and additional data coming from the server.
+   * @param {object} action The details of the action, including the action's type and additional data coming from the
+   * server.
    */
-  handleServerAction: function(action) {
+  handleStorageAction: function(action) {
     var payload = {
-      source: PayloadSources.SERVER_ACTION,
+      source: PayloadSources.STORAGE_ACTION,
       action: action
     };
     this.dispatch(payload);
   },
 
   /**
-   * @param {object} action The details of the action, including the action's
-   * type and additional data coming from the view.
+   * @param {object} action The details of the action, including the action's type and additional data coming from the
+   * view.
    */
   handleViewAction: function(action) {
     var payload = {
