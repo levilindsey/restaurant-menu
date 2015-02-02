@@ -1,6 +1,6 @@
 {
   "name": "restaurant-menu",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "description": "Simple restaurant menu app in React with Flux",
   "license": "MIT",
   "private": false,
@@ -77,7 +77,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "postinstall": "bower install",
     "start": "node src/server/main",
     "test": "gulp test"
   }

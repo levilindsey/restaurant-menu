@@ -11,7 +11,10 @@ var projectRoot = require('path').resolve(__dirname + '/../../..');
 
 var config = {};
 
-config.environment = process.argv[2] || 'development';
+config.environment =
+  process.argv[2] ||
+  process.env && process.env.NODE_ENV ||
+  'dev';
 
 // Include secure configuration data
 config.app = secureConfig.app;
@@ -33,7 +36,7 @@ config.pageMissingPath = config.viewsPath + '/404.ejs';
 
 // Variables that depend on the current execution environment
 switch (config.environment) {
-  case 'development':
+  case 'dev':
     config.app.port = 3000;
     config.app.url = '0.0.0.0:' + config.app.port;
     break;

@@ -2,7 +2,7 @@
 
 #### Simple restaurant menu app in React with Flux
 
-<!-- TODO: _See this running at [restaurant-menu.jit.su][demo-url]!_ -->
+_See this running at [restaurant-menu.jit.su][demo-url]!_
 
 - [Getting Set Up](./docs/getting-set-up.md)
 - [Understanding the Code](./docs/understanding-the-code.md)

@@ -7,7 +7,7 @@
 var config = require('./config/config');
 
 init().then(function (server) {
-  if (config.environment === 'development') {
+  if (config.environment === 'dev') {
     // Specifying an address of '0.0.0.0' allows us to access the server from any computer on the
     // local network
     server.listen(config.app.port, '0.0.0.0', function () {
@@ -39,7 +39,7 @@ function init() {
   routes.init(server);
 
   // Clean up some system state for development and testing
-  if (config.environment === 'development') {
+  if (config.environment === 'dev') {
 //    database.clear();
   }
 

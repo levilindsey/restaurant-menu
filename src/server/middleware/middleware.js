@@ -19,7 +19,6 @@ exports.init = function (server) {
       session = require('express-session'),
       MongoStore = require('connect-mongo')(session),
       database = require('../database/database'),
-      liveReload = require('connect-livereload'),
       staticFiles = require('./static-files');
 
   // Set up the templating engine
@@ -37,7 +36,9 @@ exports.init = function (server) {
 //      collection: 'sessions'
 //    })
 //  }));
-  server.use(liveReload({port: config.app.liveReloadPort}));
+  if (config.environment === 'dev') {
+    server.use(require('connect-livereload')({port: config.app.liveReloadPort}));
+  }
 
   staticFiles.init(server);
 };
