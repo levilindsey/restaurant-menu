@@ -110,15 +110,23 @@ var CartStore = assign({}, EventEmitter.prototype, {
 });
 
 CartStore.dispatchToken = MenuAppDispatcher.register(function(payload) {
+  var cartItem;
   var action = payload.action;
 
   switch(action.type) {
 
     case ActionTypes.CLICK_ADD_ITEM_TO_CART:
-      var cartItem = CartStore.createCartItem(action.menuItem);
+      cartItem = CartStore.createCartItem(action.menuItem);
       // Optimistically store the cart item in the store (i.e., assume it will be stored successfully via the CartStorageAPIUtils)
       _cartItems[cartItem.id] = cartItem;
-      CartStorageAPIUtils.storeCartItem(cartItem);
+      CartStorageAPIUtils.addCartItem(cartItem);
+      CartStore.emitChange();
+      break;
+
+    case ActionTypes.CLICK_REMOVE_ITEM_FROM_CART:
+      cartItem = action.cartItem;
+      delete _cartItems[cartItem.id];
+      CartStorageAPIUtils.removeCartItem(cartItem);
       CartStore.emitChange();
       break;
 

@@ -12,7 +12,7 @@ var HomeRoute = React.createClass({
 
   render: function() {
     return (
-      <section>
+      <section id="home-route">
         <MenuCategoriesSection />
         <MenuItemsSection />
       </section>

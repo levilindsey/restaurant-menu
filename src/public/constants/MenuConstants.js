@@ -17,7 +17,7 @@ module.exports = {
     RECEIVE_MENU_ITEMS: null,
     RECEIVE_MENU_CATEGORIES: null,
     RECEIVE_RAW_CART_ITEMS: null,
-    RECEIVE_CREATED_CART_ITEM: null
+    CART_UPDATED: null
   }),
 
   PayloadSources: keyMirror({

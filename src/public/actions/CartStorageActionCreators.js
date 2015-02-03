@@ -24,14 +24,14 @@ module.exports = {
   },
 
   /**
-   * Notify the system that the cart item was created/stored successfully.
+   * Notify the system that the cart item was added/removed successfully.
    *
-   * @param {CartItem} createdCartItem
+   * @param {CartItem} updatedCartItem
    */
-  receiveCreatedCartItem: function(createdCartItem) {
+  updateCart: function(updatedCartItem) {
     MenuAppDispatcher.handleStorageAction({
-      type: ActionTypes.RECEIVE_CREATED_CART_ITEM,
-      cartItem: createdCartItem
+      type: ActionTypes.CART_UPDATED,
+      cartItem: updatedCartItem
     });
   }
 

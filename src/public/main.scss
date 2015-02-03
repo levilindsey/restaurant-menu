@@ -86,19 +86,19 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
-//  color: color(...);
+  color: color(gray-1);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.1s;
 }
 a:visited {
-  //  color: color(...);
+  color: color(gray-1);
 }
 a:hover {
-  //  color: color(...);
-  text-decoration: underline;
+  color: color(gray-1);
+//  text-decoration: underline;
 }
 a:active {
-  //  color: color(...);
+  color: color(gray-1);
 }
 
 button {
@@ -151,3 +151,7 @@ button:active {
 @import 'components/MenuHeader/MenuHeader';
 @import 'components/MenuItemsSection/MenuItemsSection';
 @import 'components/MenuListItem/MenuListItem';
+
+@import 'routes/CartRoute/CartRoute';
+@import 'routes/CheckOutRoute/CheckOutRoute';
+@import 'routes/HomeRoute/HomeRoute';

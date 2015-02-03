@@ -5,13 +5,19 @@
  */
 
 var React = require('react');
+var CartItemsSection = require('../../components/CartItemsSection/CartItemsSection.react');
 
 var CartRoute = React.createClass({
 
   render: function() {
     return (
-      <section>
-        **
+      <section id="cart-route">
+        <button className="check-out">
+          <a href="/check-out">
+            Check Out
+          </a>
+        </button>
+        <CartItemsSection />
       </section>
     );
   }

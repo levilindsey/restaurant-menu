@@ -40,10 +40,15 @@ var CartItemsSection = React.createClass({
   render: function() {
     var cartItems = this.state.cartItems.map(_getCartListItem);
     return (
+    <div className="cart-items-section">
+      <h2 className="cart-items-header">
+        Cart
+      </h2>
       <ul className="cart-items-list"
-          ref="cartList">
+        ref="cartList">
         {cartItems}
       </ul>
+    </div>
     );
   },
 

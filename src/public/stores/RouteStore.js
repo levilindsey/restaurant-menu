@@ -16,11 +16,11 @@ var ActionTypes = MenuConstants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
 var _router = new RouteRecognizer();
-_router.add(MenuRoutes);
+_router.add(MenuRoutes.RouteDescriptions);
 
 var RouteStore = assign({}, EventEmitter.prototype, {
 
-  currentRoute: MenuRoutes.Default.handler,
+  currentRoute: MenuRoutes.Default.handler.name,
   currentParams: {},
 
   emitChange: function() {
@@ -54,11 +54,36 @@ var RouteStore = assign({}, EventEmitter.prototype, {
     if (isExternalUrl) {
       document.location = href;
     } else {
-      var results = this._router.recognize(href);
+      //var results = _router.recognize(href);
+      //
+      //// Was this recognized as a valid front-end route?
+      //if (results && results.length) {
+      //  this.currentRoute = results[0].handler.name;
+      //  this.currentParams = results[0].params;
+      //
+      //  if (!fromHistory) {
+      //    history.pushState(href, '', href);
+      //  }
+      //} else {
+      //  // Handle default/page-missing re-directs
+      //  console.info('URL matched no routes: redirecting to default route', href);
+      //  // TODO: fix the _router.recognize() logic; right now, there is a bug where no route is recognized
+      //  //this.handleChangeUrl(MenuRoutes.Default.path, fromHistory);
+      //}
+
+      // TODO: this is a hack to handle a bug I couldn't figure out at the moment
+      var results =
+        href === '/home' ?
+          [{handler: {name: 'HOME'}, path: '/home'}] :
+          href === '/cart' ?
+            [{handler: {name: 'CART'}, path: '/cart'}] :
+            href === '/check-out' ?
+              [{handler: {name: 'CHECK_OUT'}, path: '/check-out'}] :
+              null;
 
       // Was this recognized as a valid front-end route?
       if (results && results.length) {
-        this.currentRoute = results[0].handler;
+        this.currentRoute = results[0].handler.name;
         this.currentParams = results[0].params;
 
         if (!fromHistory) {

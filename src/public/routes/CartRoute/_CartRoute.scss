@@ -1,0 +1,9 @@
+#cart-route {
+  display: flex;
+  flex-direction: column;
+
+  button.check-out {
+    align-self: center;
+    margin: 20px 0;
+  }
+}

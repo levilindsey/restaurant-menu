@@ -1,3 +1,19 @@
-.cart-items-list {
+.cart-items-section {
+  display: flex;
+  flex-direction: column;
+}
 
+.cart-items-header {
+  @include serif-stack();
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
 }

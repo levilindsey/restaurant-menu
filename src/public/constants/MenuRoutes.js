@@ -13,9 +13,9 @@ var Routes = keyMirror({
 });
 
 var RouteDescriptions = [
-  { path: '/home', handler: Routes.HOME },
-  { path: '/cart', handler: Routes.CART },
-  { path: '/check-out', handler: Routes.CHECK_OUT }
+  {path: '/home', handler: {name: Routes.HOME}},
+  {path: '/cart', handler: {name: Routes.CART}},
+  {path: '/check-out', handler: {name: Routes.CHECK_OUT}}
 ];
 
 module.exports = {
@@ -24,6 +24,6 @@ module.exports = {
   RouteDescriptions: RouteDescriptions
 };
 
-if(!Routes[module.exports.Default.handler]) {
+if(!Routes[module.exports.Default.handler.name]) {
   throw new Error('The default route matches none of the registered routes.');
 }

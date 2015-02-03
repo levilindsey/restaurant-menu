@@ -33,7 +33,7 @@ module.exports = {
   /**
    * @param {CartItem} cartItem
    */
-  storeCartItem: function(cartItem) {
+  addCartItem: function(cartItem) {
     // Create a serialized version of the cart item for storage
     var rawCartItem = _serializeCartItem(cartItem);
 
@@ -43,7 +43,30 @@ module.exports = {
 
     setTimeout(function() {
       // Notify the system that the cart item was stored successfully
-      CartStorageActionCreators.receiveCreatedCartItem(cartItem);
+      CartStorageActionCreators.updateCart(cartItem);
+    }, 0);
+  },
+
+  /**
+   * @param {CartItem} cartItem
+   */
+  removeCartItem: function(cartItem) {
+    var i, count;
+
+    // Remove the matching cart item
+    for (i = 0, count = _rawCartItems.length; i < count; i +=1 ) {
+      if (_rawCartItems[i].id === cartItem.id) {
+        _rawCartItems.splice(i, 1);
+        break;
+      }
+    }
+
+    // Store the updated cart list
+    localStorage.setItem('cartItems', JSON.stringify(_rawCartItems));
+
+    setTimeout(function() {
+      // Notify the system that the cart item was removed successfully
+      CartStorageActionCreators.updateCart(cartItem);
     }, 0);
   }
 

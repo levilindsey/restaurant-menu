@@ -38,24 +38,23 @@ var MenuHeader = React.createClass({
     return (
       <header className="menu-header">
         <h1>
-          Ristorante Italiano
+          <a href="/home">
+            Ristorante Italiano
+          </a>
         </h1>
         <button
-          className="cart-count"
-          onClick={this._handleCartCountClick}>
-          <div>
-            Cart: {count} item{suffix}
-          </div>
-          <div>
-            ({PriceUtils.formatPrice(price)})
-          </div>
+          className="cart-count">
+          <a href="/cart">
+            <div>
+              Cart: {count} item{suffix}
+            </div>
+            <div>
+              ({PriceUtils.formatPrice(price)})
+            </div>
+          </a>
         </button>
       </header>
     );
-  },
-
-  _handleCartCountClick: function() {
-    // TODO: transition to cart route
   },
 
   /**
