@@ -14,8 +14,9 @@ var config = require('../config/config');
 exports.init = function (server) {
   console.log('Attaching view-route handlers');
 
-  server.route('/').get(handleHomeRequest);
-  server.route('*').all(handleInvalidRequest);
+  //server.route('/').get(handleHomeRequest);
+  //server.route('*').all(handleInvalidRequest);
+  server.route('*').get(handleHomeRequest);
 };
 
 /**

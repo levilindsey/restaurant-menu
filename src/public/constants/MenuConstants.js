@@ -9,6 +9,7 @@ var keyMirror = require('keymirror');
 module.exports = {
 
   ActionTypes: keyMirror({
+    CHANGE_ROUTE: null,
     CLICK_ADD_ITEM_TO_CART: null,
     CLICK_REMOVE_ITEM_FROM_CART: null,
     CLICK_CATEGORY_ITEM: null,
