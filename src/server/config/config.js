@@ -14,12 +14,10 @@ var config = {};
 config.environment =
   process.argv[2] ||
   process.env && process.env.NODE_ENV ||
-  'dev';
+  'production';
 
 // Include secure configuration data
 config.app = secureConfig.app;
-
-config.database = {};
 
 // Important variables for the application server
 config.app.port = 3000;

@@ -29,19 +29,11 @@ init().then(function (server) {
 function init() {
   var deferred = require('q').defer(),
       server = require('express')(),
-      database = require('./database/database'),
       middleware = require('./middleware/middleware'),
-      routes = require('./routes/routes'),
-      config = require('./config/config');
+      routes = require('./routes/routes');
 
-//  database.init();
   middleware.init(server);
   routes.init(server);
-
-  // Clean up some system state for development and testing
-  if (config.environment === 'dev') {
-//    database.clear();
-  }
 
   deferred.resolve(server);
 

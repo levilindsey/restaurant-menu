@@ -2,7 +2,7 @@
 
 #### Simple restaurant menu app in React with Flux
 
-_See this running at [restaurant-menu.jit.su][demo-url]!_
+_See this running at [restaurant-menu.mod.bz][demo-url]!_
 
 - [Getting Set Up](./docs/getting-set-up.md)
 - [Understanding the Code](./docs/understanding-the-code.md)
@@ -30,7 +30,7 @@ MIT
 
 
 
-[demo-url]: http://restaurant-menu.jit.su
+[demo-url]: http://restaurant-menu.mod.bz
 [node-url]: http://nodejs.org/
 [react-url]: https://facebook.github.io/react/
 [flux-url]: https://facebook.github.io/flux/

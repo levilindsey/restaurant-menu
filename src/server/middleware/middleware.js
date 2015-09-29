@@ -17,8 +17,6 @@ exports.init = function (server) {
       bodyParser = require('body-parser'), // For parsing urlencoded and json request bodies
       cookieParser = require('cookie-parser'),
       session = require('express-session'),
-      MongoStore = require('connect-mongo')(session),
-      database = require('../database/database'),
       staticFiles = require('./static-files');
 
   // Set up the templating engine
@@ -29,13 +27,6 @@ exports.init = function (server) {
   server.use(favicon(config.faviconPath));
   server.use(bodyParser.json());
   server.use(cookieParser());
-//  server.use(session({
-//    secret: config.app.sessionSecret,
-//    store: new MongoStore({
-//      mongoose_connection: database.getDatabaseConnection(),
-//      collection: 'sessions'
-//    })
-//  }));
   if (config.environment === 'dev') {
     server.use(require('connect-livereload')({port: config.app.liveReloadPort}));
   }
