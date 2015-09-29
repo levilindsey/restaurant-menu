@@ -1,6 +1,6 @@
 {
   "name": "restaurant-menu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple restaurant menu app in React with Flux",
   "license": "MIT",
   "private": false,
@@ -8,15 +8,15 @@
   "subdomain": "restaurant-menu",
   "repository": {
     "type": "git",
-    "url": "http://github.com/levisl176/restaurant-menu.git"
+    "url": "http://github.com/levilindsey/restaurant-menu.git"
   },
   "author": {
     "name": "Levi Lindsey",
     "email": "levisl176@gmail.com",
-    "url": "https://github.com/levisl176"
+    "url": "https://github.com/levilindsey"
   },
   "bugs": {
-    "url": "http://github.com/levisl176/restaurant-menu/issues"
+    "url": "http://github.com/levilindsey/restaurant-menu/issues"
   },
   "dependencies": {
     "body-parser": "~1.9.2",

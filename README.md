@@ -40,4 +40,4 @@ MIT
 [npm-url]: http://npmjs.org/
 [bower-url]: http://bower.io/
 [flux-repo-url]: https://github.com/facebook/flux
-[generator-meanie-url]: https://github.com/levisl176/generator-meanie
+[generator-meanie-url]: https://github.com/levilindsey/generator-meanie
